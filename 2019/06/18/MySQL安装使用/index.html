@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1.下载MySQLhttps://dev.mysql.com/downloads/mysql/ 2.配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin; 3.生成data文件以管理员身份运行cmd进入C:\Program Files (x86)\mysql">
+<meta name="description" content="1.下载MySQLhttps://dev.mysql.com/downloads/mysql/ 2.配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin;">
 <meta name="keywords" content="-MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL安装使用.md">
 <meta property="og:url" content="https://xingshijun.github.io/2019/06/18/MySQL安装使用/index.html">
 <meta property="og:site_name" content="All roads lead to Rome">
-<meta property="og:description" content="1.下载MySQLhttps://dev.mysql.com/downloads/mysql/ 2.配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin; 3.生成data文件以管理员身份运行cmd进入C:\Program Files (x86)\mysql">
+<meta property="og:description" content="1.下载MySQLhttps://dev.mysql.com/downloads/mysql/ 2.配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-21T02:18:29.562Z">
+<meta property="og:updated_time" content="2019-06-21T05:51:48.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL安装使用.md">
-<meta name="twitter:description" content="1.下载MySQLhttps://dev.mysql.com/downloads/mysql/ 2.配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin; 3.生成data文件以管理员身份运行cmd进入C:\Program Files (x86)\mysql">
+<meta name="twitter:description" content="1.下载MySQLhttps://dev.mysql.com/downloads/mysql/ 2.配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin;">
 
 
 
@@ -354,6 +354,7 @@
       
         <h3 id="1-下载MySQL"><a href="#1-下载MySQL" class="headerlink" title="1.下载MySQL"></a>1.下载MySQL</h3><p><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
 <h3 id="2-配置环境变量"><a href="#2-配置环境变量" class="headerlink" title="2.配置环境变量"></a>2.配置环境变量</h3><p>变量名：<code>MYSQL_HOME</code><br>变量值：<code>C:\Program Files (x86)\mysql-8.0.16-winx64</code> 你的安装路径<br>path里添加：<code>%MYSQL_HOME%\bin;</code></p>
+<a id="more"></a>
 <h3 id="3-生成data文件"><a href="#3-生成data文件" class="headerlink" title="3.生成data文件"></a>3.生成data文件</h3><p>以管理员身份运行cmd<br>进入<code>C:\Program Files (x86)\mysql-8.0.16-winx64\bin</code>下  
 执行命令：<code>mysqld --initialize-insecure --user=mysql</code>  在C:\Program Files (x86)\mysql-8.0.16-winx64目录下生成data目录  </p>
 <h3 id="4-启动服务"><a href="#4-启动服务" class="headerlink" title="4.启动服务"></a>4.启动服务</h3><p>执行命令：<code>net start mysql</code>  启动mysql服务<br>1.启动服务失败、服务名无效解决方法：<br>执行命令：<code>mysqld -install</code>  即可（不需要my.ini配置文件）<br>2.服务正在启动或停止中解决方法：<br>需要去任务管理器中把mysql相关进程结束掉，重新启动即可  </p>
