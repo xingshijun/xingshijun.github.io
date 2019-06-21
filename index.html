@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -83,7 +83,7 @@
 <meta property="og:title" content="All roads lead to Rome">
 <meta property="og:url" content="https://xingshijun.github.io/index.html">
 <meta property="og:site_name" content="All roads lead to Rome">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="All roads lead to Rome">
 
@@ -101,7 +101,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -133,7 +133,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -182,7 +182,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
-            Home
+            首页
           </a>
         </li>
       
@@ -192,7 +192,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
-            About
+            关于
           </a>
         </li>
       
@@ -202,7 +202,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -212,7 +212,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
-            Categories
+            分类
           </a>
         </li>
       
@@ -222,7 +222,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -288,9 +288,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-18T11:22:35+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-18T11:22:35+08:00">
                 2019-06-18
               </time>
             
@@ -309,7 +309,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -415,6 +415,147 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xingshijun.github.io/2019/06/18/node结合MySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xing Shi Jun">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="All roads lead to Rome">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/18/node结合MySQL/" itemprop="url">node结合MySQL.md</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-18T11:22:35+08:00">
+                2019-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-使用node进行数据库操作"><a href="#1-使用node进行数据库操作" class="headerlink" title="1.使用node进行数据库操作"></a>1.使用node进行数据库操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line">var mysql      = require(&apos;mysql&apos;);</span><br><span class="line">var connection = mysql.createConnection(&#123;</span><br><span class="line">  host     : &apos;localhost&apos;,</span><br><span class="line">  user     : &apos;root&apos;,</span><br><span class="line">  password : &apos;123456&apos;,</span><br><span class="line">  database : &apos;test&apos;</span><br><span class="line">&#125;);</span><br><span class="line">/* MySql数据库连接参数说明：</span><br><span class="line">参数                  描述</span><br><span class="line">host                    主机地址 （默认：localhost）</span><br><span class="line">user                    用户名</span><br><span class="line">password                密码</span><br><span class="line">port                    端口号 （默认：3306）</span><br><span class="line">database                数据库名</span><br><span class="line">charset                 连接字符集（默认：&apos;UTF8_GENERAL_CI&apos;，注意字符集的字母都要大写）</span><br><span class="line">localAddress            此IP用于TCP连接（可选）</span><br><span class="line">socketPath              连接到unix域路径，当使用 host 和 port 时会被忽略</span><br><span class="line">timezone                时区（默认：&apos;local&apos;）</span><br><span class="line">connectTimeout          连接超时（默认：不限制；单位：毫秒）</span><br><span class="line">stringifyObjects        是否序列化对象</span><br><span class="line">typeCast                是否将列值转化为本地JavaScript类型值 （默认：true）</span><br><span class="line">queryFormat             自定义query语句格式化方法</span><br><span class="line">supportBigNumbers       数据库支持bigint或decimal类型列时，需要设此option为true （默认：false）</span><br><span class="line">bigNumberStrings        supportBigNumbers和bigNumberStrings启用 强制bigint或decimal列以JavaScript字符串类型返回（默认：false）</span><br><span class="line">dateStrings             强制timestamp,datetime,data类型以字符串类型返回，而不是JavaScript Date类型（默认：false）</span><br><span class="line">debug                   开启调试（默认：false）</span><br><span class="line">multipleStatements      是否许一个query中有多个MySQL语句 （默认：false）</span><br><span class="line">flags                   用于修改连接标志</span><br><span class="line">ssl                     使用ssl参数（与crypto.createCredenitals参数格式一至）或一个包含ssl配置文件名称的字符串，目前只捆绑Amazon RDS的配置文件</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">// 执行数据库连接 </span><br><span class="line">connection.connect();</span><br><span class="line"></span><br><span class="line">var sqlstring = &quot;&quot;;</span><br><span class="line"> </span><br><span class="line">// 创建表</span><br><span class="line">sqlstring = &quot;Create Table MYTABLE (name VARCHAR(20), sex CHAR(1))&quot;</span><br><span class="line">connection.query(sqlstring, function (err, results, fields) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">         console.log(&apos;[UPDATE ERROR] - &apos;, err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;--------------------------CREATE----------------------------&apos;);       </span><br><span class="line">    console.log(&apos;CREATE TABLE:&apos;, results);        </span><br><span class="line">    console.log(&apos;------------------------------------------------------------\n\n&apos;);  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 插入数据</span><br><span class="line">sqlstring = &quot;Insert into MYTABLE Values(&apos;Michael&apos;, &apos;m&apos;)&quot;;</span><br><span class="line">connection.query(sqlstring, function (err, result) &#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&apos;[INSERT ERROR] - &apos;, err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;        </span><br><span class="line"> </span><br><span class="line">   console.log(&apos;--------------------------INSERT----------------------------&apos;);       </span><br><span class="line">   console.log(&apos;INSERT ID - &apos;, result);        </span><br><span class="line">   console.log(&apos;------------------------------------------------------------\n\n&apos;);  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 更新数据</span><br><span class="line">sqlstring = &quot;Update MYTABLE Set name = &apos;Michael Jordan&apos; Where sex = &apos;m&apos;&quot;;</span><br><span class="line">connection.query(sqlstring, function (err, result) &#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&apos;[UPDATE ERROR] - &apos;, err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;        </span><br><span class="line">    console.log(&apos;--------------------------UPDATE----------------------------&apos;);</span><br><span class="line">    console.log(&apos;UPDATE affectedRows - &apos;, result.affectedRows);</span><br><span class="line">    console.log(&apos;------------------------------------------------------------\n\n&apos;);  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 查询数据</span><br><span class="line">sqlstring = &quot;Select * From MYTABLE&quot;;</span><br><span class="line">connection.query(sqlstring, function (err, result) &#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&apos;[SELECT ERROR] - &apos;, err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    console.log(&apos;--------------------------SELECT---------------------------&apos;);</span><br><span class="line">    console.log(&apos;SELECT - &apos;, result);</span><br><span class="line">    console.log(&apos;------------------------------------------------------------\n\n&apos;);   </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//删除数据</span><br><span class="line">sqlstring = &quot;Delete From MYTABLE&quot;;</span><br><span class="line">connection.query(sqlstring, function (err, result) &#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&apos;[DELETE ERROR] - &apos;, err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;        </span><br><span class="line"> </span><br><span class="line">    console.log(&apos;--------------------------DELETE----------------------------&apos;);</span><br><span class="line">    console.log(&apos;DELETE affectedRows - &apos;, result.affectedRows);</span><br><span class="line">    console.log(&apos;------------------------------------------------------------\n\n&apos;);  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//删除表格</span><br><span class="line">sqlstring = &quot;Drop Table MYTABLE&quot;;</span><br><span class="line">connection.query(sqlstring, function (err, result) &#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&apos;[DROP ERROR] - &apos;, err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;        </span><br><span class="line"> </span><br><span class="line">    console.log(&apos;--------------------------DROP-----------------------------&apos;);</span><br><span class="line">    console.log(&apos;DROP TABLE :&apos;, result.affectedRows);</span><br><span class="line">    console.log(&apos;------------------------------------------------------------\n\n&apos;);    </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 断开数据库连接</span><br><span class="line">connection.end();</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xingshijun.github.io/2019/06/18/node服务编写/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -444,9 +585,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-18T11:22:35+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-18T11:22:35+08:00">
                 2019-06-18
               </time>
             
@@ -465,7 +606,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -556,125 +697,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xingshijun.github.io/2019/06/18/内网映射/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xing Shi Jun">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="All roads lead to Rome">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/18/内网映射/" itemprop="url">内网映射</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-18T11:22:35+08:00">
-                2019-06-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="注册并使用Sunny-Ngrok进行内网映射"><a href="#注册并使用Sunny-Ngrok进行内网映射" class="headerlink" title="注册并使用Sunny-Ngrok进行内网映射"></a>注册并使用Sunny-Ngrok进行内网映射</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">官网 https://www.ngrok.cc/</span><br><span class="line">注册登录后 打开【隧道管理】=&gt; 【开通隧道】</span><br><span class="line">开通成功后下载对应系统的客户端 运行后输入【隧道管理】中的隧道id 开启成功即可使用赠送的域名进行访问本地映射的端口</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xingshijun.github.io/2019/06/18/安装和部署/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -704,9 +726,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-18T11:22:35+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-18T11:22:35+08:00">
                 2019-06-18
               </time>
             
@@ -725,7 +747,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -820,7 +842,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xingshijun.github.io/2019/06/18/node结合MySQL/">
+    <link itemprop="mainEntityOfPage" href="https://xingshijun.github.io/2019/06/18/内网映射/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xing Shi Jun">
@@ -839,7 +861,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/18/node结合MySQL/" itemprop="url">node结合MySQL.md</a></h1>
+                <a class="post-title-link" href="/2019/06/18/内网映射/" itemprop="url">内网映射</a></h1>
         
 
         <div class="post-meta">
@@ -849,9 +871,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-18T11:22:35+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-18T11:22:35+08:00">
                 2019-06-18
               </time>
             
@@ -861,28 +883,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -913,7 +913,7 @@
       
         
           
-            <h3 id="1-使用node进行数据库操作"><a href="#1-使用node进行数据库操作" class="headerlink" title="1.使用node进行数据库操作"></a>1.使用node进行数据库操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line">var mysql      = require(&apos;mysql&apos;);</span><br><span class="line">var connection = mysql.createConnection(&#123;</span><br><span class="line">  host     : &apos;localhost&apos;,</span><br><span class="line">  user     : &apos;root&apos;,</span><br><span class="line">  password : &apos;123456&apos;,</span><br><span class="line">  database : &apos;test&apos;</span><br><span class="line">&#125;);</span><br><span class="line">/* MySql数据库连接参数说明：</span><br><span class="line">参数                  描述</span><br><span class="line">host                    主机地址 （默认：localhost）</span><br><span class="line">user                    用户名</span><br><span class="line">password                密码</span><br><span class="line">port                    端口号 （默认：3306）</span><br><span class="line">database                数据库名</span><br><span class="line">charset                 连接字符集（默认：&apos;UTF8_GENERAL_CI&apos;，注意字符集的字母都要大写）</span><br><span class="line">localAddress            此IP用于TCP连接（可选）</span><br><span class="line">socketPath              连接到unix域路径，当使用 host 和 port 时会被忽略</span><br><span class="line">timezone                时区（默认：&apos;local&apos;）</span><br><span class="line">connectTimeout          连接超时（默认：不限制；单位：毫秒）</span><br><span class="line">stringifyObjects        是否序列化对象</span><br><span class="line">typeCast                是否将列值转化为本地JavaScript类型值 （默认：true）</span><br><span class="line">queryFormat             自定义query语句格式化方法</span><br><span class="line">supportBigNumbers       数据库支持bigint或decimal类型列时，需要设此option为true （默认：false）</span><br><span class="line">bigNumberStrings        supportBigNumbers和bigNumberStrings启用 强制bigint或decimal列以JavaScript字符串类型返回（默认：false）</span><br><span class="line">dateStrings             强制timestamp,datetime,data类型以字符串类型返回，而不是JavaScript Date类型（默认：false）</span><br><span class="line">debug                   开启调试（默认：false）</span><br><span class="line">multipleStatements      是否许一个query中有多个MySQL语句 （默认：false）</span><br><span class="line">flags                   用于修改连接标志</span><br><span class="line">ssl                     使用ssl参数（与crypto.createCredenitals参数格式一至）或一个包含ssl配置文件名称的字符串，目前只捆绑Amazon RDS的配置文件</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">// 执行数据库连接 </span><br><span class="line">connection.connect();</span><br><span class="line"></span><br><span class="line">var sqlstring = &quot;&quot;;</span><br><span class="line"> </span><br><span class="line">// 创建表</span><br><span class="line">sqlstring = &quot;Create Table MYTABLE (name VARCHAR(20), sex CHAR(1))&quot;</span><br><span class="line">connection.query(sqlstring, function (err, results, fields) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">         console.log(&apos;[UPDATE ERROR] - &apos;, err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;--------------------------CREATE----------------------------&apos;);       </span><br><span class="line">    console.log(&apos;CREATE TABLE:&apos;, results);        </span><br><span class="line">    console.log(&apos;------------------------------------------------------------\n\n&apos;);  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 插入数据</span><br><span class="line">sqlstring = &quot;Insert into MYTABLE Values(&apos;Michael&apos;, &apos;m&apos;)&quot;;</span><br><span class="line">connection.query(sqlstring, function (err, result) &#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&apos;[INSERT ERROR] - &apos;, err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;        </span><br><span class="line"> </span><br><span class="line">   console.log(&apos;--------------------------INSERT----------------------------&apos;);       </span><br><span class="line">   console.log(&apos;INSERT ID - &apos;, result);        </span><br><span class="line">   console.log(&apos;------------------------------------------------------------\n\n&apos;);  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 更新数据</span><br><span class="line">sqlstring = &quot;Update MYTABLE Set name = &apos;Michael Jordan&apos; Where sex = &apos;m&apos;&quot;;</span><br><span class="line">connection.query(sqlstring, function (err, result) &#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&apos;[UPDATE ERROR] - &apos;, err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;        </span><br><span class="line">    console.log(&apos;--------------------------UPDATE----------------------------&apos;);</span><br><span class="line">    console.log(&apos;UPDATE affectedRows - &apos;, result.affectedRows);</span><br><span class="line">    console.log(&apos;------------------------------------------------------------\n\n&apos;);  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 查询数据</span><br><span class="line">sqlstring = &quot;Select * From MYTABLE&quot;;</span><br><span class="line">connection.query(sqlstring, function (err, result) &#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&apos;[SELECT ERROR] - &apos;, err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    console.log(&apos;--------------------------SELECT---------------------------&apos;);</span><br><span class="line">    console.log(&apos;SELECT - &apos;, result);</span><br><span class="line">    console.log(&apos;------------------------------------------------------------\n\n&apos;);   </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//删除数据</span><br><span class="line">sqlstring = &quot;Delete From MYTABLE&quot;;</span><br><span class="line">connection.query(sqlstring, function (err, result) &#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&apos;[DELETE ERROR] - &apos;, err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;        </span><br><span class="line"> </span><br><span class="line">    console.log(&apos;--------------------------DELETE----------------------------&apos;);</span><br><span class="line">    console.log(&apos;DELETE affectedRows - &apos;, result.affectedRows);</span><br><span class="line">    console.log(&apos;------------------------------------------------------------\n\n&apos;);  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//删除表格</span><br><span class="line">sqlstring = &quot;Drop Table MYTABLE&quot;;</span><br><span class="line">connection.query(sqlstring, function (err, result) &#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&apos;[DROP ERROR] - &apos;, err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;        </span><br><span class="line"> </span><br><span class="line">    console.log(&apos;--------------------------DROP-----------------------------&apos;);</span><br><span class="line">    console.log(&apos;DROP TABLE :&apos;, result.affectedRows);</span><br><span class="line">    console.log(&apos;------------------------------------------------------------\n\n&apos;);    </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 断开数据库连接</span><br><span class="line">connection.end();</span><br></pre></td></tr></table></figure>
+            <h3 id="注册并使用Sunny-Ngrok进行内网映射"><a href="#注册并使用Sunny-Ngrok进行内网映射" class="headerlink" title="注册并使用Sunny-Ngrok进行内网映射"></a>注册并使用Sunny-Ngrok进行内网映射</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">官网 https://www.ngrok.cc/</span><br><span class="line">注册登录后 打开【隧道管理】=&gt; 【开通隧道】</span><br><span class="line">开通成功后下载对应系统的客户端 运行后输入【隧道管理】中的隧道id 开启成功即可使用赠送的域名进行访问本地映射的端口</span><br></pre></td></tr></table></figure>
           
         
       
@@ -990,9 +990,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-07T21:33:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-07T21:33:48+08:00">
                 2019-06-07
               </time>
             
@@ -1011,7 +1011,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1140,7 +1140,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">6</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -1151,7 +1151,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
@@ -1162,7 +1162,7 @@
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">标签</span>
                 </a>
               </div>
             
@@ -1208,7 +1208,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -1216,7 +1216,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
