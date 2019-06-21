@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1.下载MySQLhttps://dev.mysql.com/downloads/mysql/ 2.配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin;">
+<meta name="description" content="###下载MySQLhttps://dev.mysql.com/downloads/mysql/ 配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin;">
 <meta name="keywords" content="-MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL安装使用.md">
 <meta property="og:url" content="https://xingshijun.github.io/2019/06/18/MySQL安装使用/index.html">
 <meta property="og:site_name" content="All roads lead to Rome">
-<meta property="og:description" content="1.下载MySQLhttps://dev.mysql.com/downloads/mysql/ 2.配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin;">
+<meta property="og:description" content="###下载MySQLhttps://dev.mysql.com/downloads/mysql/ 配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-21T07:59:53.514Z">
+<meta property="og:updated_time" content="2019-06-21T08:02:45.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL安装使用.md">
-<meta name="twitter:description" content="1.下载MySQLhttps://dev.mysql.com/downloads/mysql/ 2.配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin;">
+<meta name="twitter:description" content="###下载MySQLhttps://dev.mysql.com/downloads/mysql/ 配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin;">
 
 
 
@@ -352,23 +352,23 @@
       
 
       
-        <h3 id="1-下载MySQL"><a href="#1-下载MySQL" class="headerlink" title="1.下载MySQL"></a>1.下载MySQL</h3><p><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
-<h3 id="2-配置环境变量"><a href="#2-配置环境变量" class="headerlink" title="2.配置环境变量"></a>2.配置环境变量</h3><p>变量名：<code>MYSQL_HOME</code><br>变量值：<code>C:\Program Files (x86)\mysql-8.0.16-winx64</code> 你的安装路径<br>path里添加：<code>%MYSQL_HOME%\bin;</code></p>
+        <p>###下载MySQL<br><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>变量名：<code>MYSQL_HOME</code><br>变量值：<code>C:\Program Files (x86)\mysql-8.0.16-winx64</code> 你的安装路径<br>path里添加：<code>%MYSQL_HOME%\bin;</code></p>
 <a id="more"></a>
-<h3 id="3-生成data文件"><a href="#3-生成data文件" class="headerlink" title="3.生成data文件"></a>3.生成data文件</h3><p>以管理员身份运行cmd<br>进入<code>C:\Program Files (x86)\mysql-8.0.16-winx64\bin</code>下  
+<h3 id="生成data文件"><a href="#生成data文件" class="headerlink" title="生成data文件"></a>生成data文件</h3><p>以管理员身份运行cmd<br>进入<code>C:\Program Files (x86)\mysql-8.0.16-winx64\bin</code>下  
 执行命令：<code>mysqld --initialize-insecure --user=mysql</code>  在C:\Program Files (x86)\mysql-8.0.16-winx64目录下生成data目录  </p>
-<h3 id="4-启动服务"><a href="#4-启动服务" class="headerlink" title="4.启动服务"></a>4.启动服务</h3><p>执行命令：<code>net start mysql</code>  启动mysql服务<br>1.启动服务失败、服务名无效解决方法：<br>执行命令：<code>mysqld -install</code>  即可（不需要my.ini配置文件）<br>2.服务正在启动或停止中解决方法：<br>需要去任务管理器中把mysql相关进程结束掉，重新启动即可  </p>
-<h3 id="5-登录mysql"><a href="#5-登录mysql" class="headerlink" title="5.登录mysql"></a>5.登录mysql</h3><p>登录mysql:(因为之前没设置密码，所以密码为空，不用输入密码，直接回车即可）<br><code>C:\Program Files (x86)\mysql-8.0.16-winx64\bin&gt;mysql -u root -p</code><br><code>Enter password: ******</code>  </p>
-<h3 id="6-查询用户密码"><a href="#6-查询用户密码" class="headerlink" title="6.查询用户密码"></a>6.查询用户密码</h3><p><code>mysql&gt; select host,user,authentication_string from mysql.user;</code></p>
-<h3 id="7-设置（或修改）root用户密码"><a href="#7-设置（或修改）root用户密码" class="headerlink" title="7.设置（或修改）root用户密码"></a>7.设置（或修改）root用户密码</h3><p>设置（或修改）root用户密码：<br>set password for root@localhost = password(‘123456’)<br><code>mysql&gt; ALTER user &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;123456&#39;;</code> 设置密码为123456<br><code>mysql&gt; flush privileges;</code> 相当于保存，执行此命令后，设置才生效，若不执行，还是之前的密码不变  </p>
-<h3 id="8-添加用户"><a href="#8-添加用户" class="headerlink" title="8.添加用户"></a>8.添加用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create user &apos;time&apos;@&apos;localhost&apos; identified by &apos;123456&apos;;</span><br><span class="line">// time 用户名</span><br><span class="line">// localhost 只能本地访问，写为%代表所有外网IP都可以访问</span><br><span class="line">// 123456 为用户密码</span><br><span class="line">然后需要刷新授权</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><p>执行命令：<code>net start mysql</code>  启动mysql服务<br>1.启动服务失败、服务名无效解决方法：<br>执行命令：<code>mysqld -install</code>  即可（不需要my.ini配置文件）<br>2.服务正在启动或停止中解决方法：<br>需要去任务管理器中把mysql相关进程结束掉，重新启动即可  </p>
+<h3 id="登录mysql"><a href="#登录mysql" class="headerlink" title="登录mysql"></a>登录mysql</h3><p>登录mysql:(因为之前没设置密码，所以密码为空，不用输入密码，直接回车即可）<br><code>C:\Program Files (x86)\mysql-8.0.16-winx64\bin&gt;mysql -u root -p</code><br><code>Enter password: ******</code>  </p>
+<h3 id="查询用户密码"><a href="#查询用户密码" class="headerlink" title="查询用户密码"></a>查询用户密码</h3><p><code>mysql&gt; select host,user,authentication_string from mysql.user;</code></p>
+<h3 id="设置（或修改）root用户密码"><a href="#设置（或修改）root用户密码" class="headerlink" title="设置（或修改）root用户密码"></a>设置（或修改）root用户密码</h3><p>设置（或修改）root用户密码：<br>set password for root@localhost = password(‘123456’)<br><code>mysql&gt; ALTER user &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;123456&#39;;</code> 设置密码为123456<br><code>mysql&gt; flush privileges;</code> 相当于保存，执行此命令后，设置才生效，若不执行，还是之前的密码不变  </p>
+<h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create user &apos;time&apos;@&apos;localhost&apos; identified by &apos;123456&apos;;</span><br><span class="line">// time 用户名</span><br><span class="line">// localhost 只能本地访问，写为%代表所有外网IP都可以访问</span><br><span class="line">// 123456 为用户密码</span><br><span class="line">然后需要刷新授权</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
 
-<h3 id="9-删除用户"><a href="#9-删除用户" class="headerlink" title="9.删除用户"></a>9.删除用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; delete from mysql.user where user=&apos;time&apos; and host=&apos;localhost&apos;;</span><br><span class="line">// 然后需要刷新授权 否则下次添加用户时会报错</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
+<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; delete from mysql.user where user=&apos;time&apos; and host=&apos;localhost&apos;;</span><br><span class="line">// 然后需要刷新授权 否则下次添加用户时会报错</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
 
-<h3 id="10-修改远程连接授权"><a href="#10-修改远程连接授权" class="headerlink" title="10.修改远程连接授权:"></a>10.修改远程连接授权:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; update user set host=&apos;%&apos; where user=&apos;root&apos;; // %代表所有外网IP都可以访问</span><br><span class="line">// 然后需要刷新授权 </span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
+<h3 id="修改远程连接授权"><a href="#修改远程连接授权" class="headerlink" title="修改远程连接授权:"></a>修改远程连接授权:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; update user set host=&apos;%&apos; where user=&apos;root&apos;; // %代表所有外网IP都可以访问</span><br><span class="line">// 然后需要刷新授权 </span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
 
-<h3 id="11-退出mysql"><a href="#11-退出mysql" class="headerlink" title="11.退出mysql"></a>11.退出mysql</h3><p><code>mysql&gt; quit</code>  </p>
-<h3 id="12-Mysql创建数据库字符集的选择"><a href="#12-Mysql创建数据库字符集的选择" class="headerlink" title="12.Mysql创建数据库字符集的选择"></a>12.Mysql创建数据库字符集的选择</h3><ul>
+<h3 id="退出mysql"><a href="#退出mysql" class="headerlink" title="退出mysql"></a>退出mysql</h3><p><code>mysql&gt; quit</code>  </p>
+<h3 id="Mysql创建数据库字符集的选择"><a href="#Mysql创建数据库字符集的选择" class="headerlink" title="Mysql创建数据库字符集的选择"></a>Mysql创建数据库字符集的选择</h3><ul>
 <li><p>一般选择utf8.下面介绍一下utf8与utfmb4的区别</p>
 <p>utf8mb4兼容utf8，且比utf8能表示更多的字符</p>
 <p>unicode编码区从1 ～ 126就属于传统utf8区，utf8mb4也兼容这个区，126行以下就是utf8mb4扩充区</p>
@@ -554,7 +554,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-下载MySQL"><span class="nav-number">1.</span> <span class="nav-text">1.下载MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-配置环境变量"><span class="nav-number">2.</span> <span class="nav-text">2.配置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-生成data文件"><span class="nav-number">3.</span> <span class="nav-text">3.生成data文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-启动服务"><span class="nav-number">4.</span> <span class="nav-text">4.启动服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-登录mysql"><span class="nav-number">5.</span> <span class="nav-text">5.登录mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-查询用户密码"><span class="nav-number">6.</span> <span class="nav-text">6.查询用户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-设置（或修改）root用户密码"><span class="nav-number">7.</span> <span class="nav-text">7.设置（或修改）root用户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-添加用户"><span class="nav-number">8.</span> <span class="nav-text">8.添加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-删除用户"><span class="nav-number">9.</span> <span class="nav-text">9.删除用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-修改远程连接授权"><span class="nav-number">10.</span> <span class="nav-text">10.修改远程连接授权:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-退出mysql"><span class="nav-number">11.</span> <span class="nav-text">11.退出mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-Mysql创建数据库字符集的选择"><span class="nav-number">12.</span> <span class="nav-text">12.Mysql创建数据库字符集的选择</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置环境变量"><span class="nav-number">1.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成data文件"><span class="nav-number">2.</span> <span class="nav-text">生成data文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动服务"><span class="nav-number">3.</span> <span class="nav-text">启动服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录mysql"><span class="nav-number">4.</span> <span class="nav-text">登录mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询用户密码"><span class="nav-number">5.</span> <span class="nav-text">查询用户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置（或修改）root用户密码"><span class="nav-number">6.</span> <span class="nav-text">设置（或修改）root用户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加用户"><span class="nav-number">7.</span> <span class="nav-text">添加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除用户"><span class="nav-number">8.</span> <span class="nav-text">删除用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改远程连接授权"><span class="nav-number">9.</span> <span class="nav-text">修改远程连接授权:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退出mysql"><span class="nav-number">10.</span> <span class="nav-text">退出mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql创建数据库字符集的选择"><span class="nav-number">11.</span> <span class="nav-text">Mysql创建数据库字符集的选择</span></a></li></ol></div>
             
 
           </div>
