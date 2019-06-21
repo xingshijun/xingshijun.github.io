@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="All roads lead to Rome">
 <meta property="og:description" content="1.下载MySQLhttps://dev.mysql.com/downloads/mysql/ 2.配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-21T05:51:48.870Z">
+<meta property="og:updated_time" content="2019-06-21T07:59:53.514Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL安装使用.md">
 <meta name="twitter:description" content="1.下载MySQLhttps://dev.mysql.com/downloads/mysql/ 2.配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin;">
@@ -368,6 +368,20 @@
 <h3 id="10-修改远程连接授权"><a href="#10-修改远程连接授权" class="headerlink" title="10.修改远程连接授权:"></a>10.修改远程连接授权:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; update user set host=&apos;%&apos; where user=&apos;root&apos;; // %代表所有外网IP都可以访问</span><br><span class="line">// 然后需要刷新授权 </span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
 
 <h3 id="11-退出mysql"><a href="#11-退出mysql" class="headerlink" title="11.退出mysql"></a>11.退出mysql</h3><p><code>mysql&gt; quit</code>  </p>
+<h3 id="12-Mysql创建数据库字符集的选择"><a href="#12-Mysql创建数据库字符集的选择" class="headerlink" title="12.Mysql创建数据库字符集的选择"></a>12.Mysql创建数据库字符集的选择</h3><ul>
+<li><p>一般选择utf8.下面介绍一下utf8与utfmb4的区别</p>
+<p>utf8mb4兼容utf8，且比utf8能表示更多的字符</p>
+<p>unicode编码区从1 ～ 126就属于传统utf8区，utf8mb4也兼容这个区，126行以下就是utf8mb4扩充区</p>
+</li>
+<li><p>排序说明</p>
+<p>utf8_general_ci 不区分大小写，这个你在注册用户名和邮箱的时候就要使用。</p>
+<p>utf8_general_cs 区分大小写，如果用户名和邮箱用这个 就会造成不良后果</p>
+<p>utf8_bin:字符串每个字符串用二进制数据编译存储。 区分大小写，而且可以存二进制的内容</p>
+<p>utf8_unicode_ci和utf8_general_ci对中、英文来说没有实质的差别。</p>
+<p>utf8_general_ci校对速度快，但准确度稍差。（准确度够用，一般建库选择这个）</p>
+<p>utf8_unicode_ci准确度高，但校对速度稍慢</p>
+</li>
+</ul>
 
       
     </div>
@@ -540,7 +554,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-下载MySQL"><span class="nav-number">1.</span> <span class="nav-text">1.下载MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-配置环境变量"><span class="nav-number">2.</span> <span class="nav-text">2.配置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-生成data文件"><span class="nav-number">3.</span> <span class="nav-text">3.生成data文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-启动服务"><span class="nav-number">4.</span> <span class="nav-text">4.启动服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-登录mysql"><span class="nav-number">5.</span> <span class="nav-text">5.登录mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-查询用户密码"><span class="nav-number">6.</span> <span class="nav-text">6.查询用户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-设置（或修改）root用户密码"><span class="nav-number">7.</span> <span class="nav-text">7.设置（或修改）root用户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-添加用户"><span class="nav-number">8.</span> <span class="nav-text">8.添加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-删除用户"><span class="nav-number">9.</span> <span class="nav-text">9.删除用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-修改远程连接授权"><span class="nav-number">10.</span> <span class="nav-text">10.修改远程连接授权:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-退出mysql"><span class="nav-number">11.</span> <span class="nav-text">11.退出mysql</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-下载MySQL"><span class="nav-number">1.</span> <span class="nav-text">1.下载MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-配置环境变量"><span class="nav-number">2.</span> <span class="nav-text">2.配置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-生成data文件"><span class="nav-number">3.</span> <span class="nav-text">3.生成data文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-启动服务"><span class="nav-number">4.</span> <span class="nav-text">4.启动服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-登录mysql"><span class="nav-number">5.</span> <span class="nav-text">5.登录mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-查询用户密码"><span class="nav-number">6.</span> <span class="nav-text">6.查询用户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-设置（或修改）root用户密码"><span class="nav-number">7.</span> <span class="nav-text">7.设置（或修改）root用户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-添加用户"><span class="nav-number">8.</span> <span class="nav-text">8.添加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-删除用户"><span class="nav-number">9.</span> <span class="nav-text">9.删除用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-修改远程连接授权"><span class="nav-number">10.</span> <span class="nav-text">10.修改远程连接授权:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-退出mysql"><span class="nav-number">11.</span> <span class="nav-text">11.退出mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-Mysql创建数据库字符集的选择"><span class="nav-number">12.</span> <span class="nav-text">12.Mysql创建数据库字符集的选择</span></a></li></ol></div>
             
 
           </div>
