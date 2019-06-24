@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="All roads lead to Rome">
 <meta property="og:description" content="###下载MySQLhttps://dev.mysql.com/downloads/mysql/ 配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-21T08:02:45.657Z">
+<meta property="og:updated_time" content="2019-06-24T10:17:36.409Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL安装使用.md">
 <meta name="twitter:description" content="###下载MySQLhttps://dev.mysql.com/downloads/mysql/ 配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin;">
@@ -360,7 +360,7 @@
 <h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><p>执行命令：<code>net start mysql</code>  启动mysql服务<br>1.启动服务失败、服务名无效解决方法：<br>执行命令：<code>mysqld -install</code>  即可（不需要my.ini配置文件）<br>2.服务正在启动或停止中解决方法：<br>需要去任务管理器中把mysql相关进程结束掉，重新启动即可  </p>
 <h3 id="登录mysql"><a href="#登录mysql" class="headerlink" title="登录mysql"></a>登录mysql</h3><p>登录mysql:(因为之前没设置密码，所以密码为空，不用输入密码，直接回车即可）<br><code>C:\Program Files (x86)\mysql-8.0.16-winx64\bin&gt;mysql -u root -p</code><br><code>Enter password: ******</code>  </p>
 <h3 id="查询用户密码"><a href="#查询用户密码" class="headerlink" title="查询用户密码"></a>查询用户密码</h3><p><code>mysql&gt; select host,user,authentication_string from mysql.user;</code></p>
-<h3 id="设置（或修改）root用户密码"><a href="#设置（或修改）root用户密码" class="headerlink" title="设置（或修改）root用户密码"></a>设置（或修改）root用户密码</h3><p>设置（或修改）root用户密码：<br>set password for root@localhost = password(‘123456’)<br><code>mysql&gt; ALTER user &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;123456&#39;;</code> 设置密码为123456<br><code>mysql&gt; flush privileges;</code> 相当于保存，执行此命令后，设置才生效，若不执行，还是之前的密码不变  </p>
+<h3 id="设置（或修改）root用户密码"><a href="#设置（或修改）root用户密码" class="headerlink" title="设置（或修改）root用户密码"></a>设置（或修改）root用户密码</h3><p>设置（或修改）root用户密码：<br><code>mysql&gt; ALTER user &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;123456&#39;;</code> 设置密码为123456<br><code>mysql&gt; flush privileges;</code> 相当于保存，执行此命令后，设置才生效，若不执行，还是之前的密码不变  </p>
 <h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create user &apos;time&apos;@&apos;localhost&apos; identified by &apos;123456&apos;;</span><br><span class="line">// time 用户名</span><br><span class="line">// localhost 只能本地访问，写为%代表所有外网IP都可以访问</span><br><span class="line">// 123456 为用户密码</span><br><span class="line">然后需要刷新授权</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
 
 <h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; delete from mysql.user where user=&apos;time&apos; and host=&apos;localhost&apos;;</span><br><span class="line">// 然后需要刷新授权 否则下次添加用户时会报错</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
@@ -382,6 +382,164 @@
 <p>utf8_unicode_ci准确度高，但校对速度稍慢</p>
 </li>
 </ul>
+<h3 id="MySQL支持的数据类型"><a href="#MySQL支持的数据类型" class="headerlink" title="MySQL支持的数据类型"></a>MySQL支持的数据类型</h3><ol>
+<li><p><strong>数值类型</strong></p>
+<table>
+<thead>
+<tr>
+<th>整数类型</th>
+<th>字节</th>
+<th>范围（有符号）</th>
+<th>范围（无符号）</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TINYINT</td>
+<td>1字节</td>
+<td>(-128,127)</td>
+<td>(0,255)</td>
+<td>小整数值</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>2字节</td>
+<td>(-32 768,32 767)</td>
+<td>(0,65 535)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>MEDIUMINT</td>
+<td>3字节</td>
+<td>(-8 388 608,8 388 607)</td>
+<td>(0,16 777 215)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>INT或INTEGER</td>
+<td>4字节</td>
+<td>(-2 147 483 648,2 147 483 647)</td>
+<td>(0,4 294 967 295)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>8字节</td>
+<td>(-9 233 372 036 854 775 808,9 223 372 036 854 775 807)</td>
+<td>(0,18 446 744 073 709 551 615)</td>
+<td>极大整数值</td>
+</tr>
+</tbody></table>
+<p>FLOAT(单精度浮点数值 4字节) (-3.402 823 466 E+38,1.175 494 351 E-38),0,(1.175 494 351 E-38,3.402 823 466 351 E+38) 0,(1.175 494 351 E-38,3.402 823 466 E+38)  </p>
+<p>DOUBLE ( 双精度浮点数值 8字节 )  (1.797 693 134 862 315 7 E+308,2.225 073 858 507 201 4 E-308),0,(2.225 073 858 507 201 4 E-308,1.797 693 134 862 315 7 E+308) 0,(2.225 073 858 507 201 4 E-308,1.797 693 134 862 315 7 E+308) </p>
+<p>DECIMAL 对DECIMAL(M,D) ，如果M&gt;D，为M+2否则为D+2 依赖于M和D的值 依赖于M和D的值</p>
+</li>
+<li><p><strong>字符串类型</strong></p>
+<table>
+<thead>
+<tr>
+<th>字符串类型</th>
+<th>字节大小</th>
+<th>描述及存储需求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CHAR</td>
+<td>0-255字节</td>
+<td>定长字符串</td>
+</tr>
+<tr>
+<td>VARCHAR</td>
+<td>0-255字节</td>
+<td>变长字符串</td>
+</tr>
+<tr>
+<td>TINYBLOB</td>
+<td>0-255字节        不超过 255</td>
+<td>个字符的二进制字符串</td>
+</tr>
+<tr>
+<td>TINYTEXT</td>
+<td>0-255字节</td>
+<td>短文本字符串</td>
+</tr>
+<tr>
+<td>BLOB</td>
+<td>0-65535字节</td>
+<td>二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>0-65535字节</td>
+<td>长文本数据</td>
+</tr>
+<tr>
+<td>MEDIUMBLOB</td>
+<td>0-16 777 215字节</td>
+<td>二进制形式的中等长度文本数据</td>
+</tr>
+<tr>
+<td>MEDIUMTEXT</td>
+<td>0-16 777 215字节</td>
+<td>中等长度文本数据</td>
+</tr>
+<tr>
+<td>LOGNGBLOB</td>
+<td>0-4 294 967 295字节</td>
+<td>二进制形式的极大文本数据</td>
+</tr>
+<tr>
+<td>LONGTEXT</td>
+<td>0-4 294 967 295字节</td>
+<td>极大文本数据</td>
+</tr>
+</tbody></table>
+<p> VARBINARY(M) 允许长度0-M个字节的定长字节符串，值的长度+1个字节</p>
+<p> BINARY(M) 允许长度0-M个字节的定长字节符串</p>
+</li>
+<li><p><strong>日期和时间类型</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小(字节)</th>
+<th>范围</th>
+<th>格式          用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DATE</td>
+<td>4</td>
+<td>1000-01-01/9999-12-31</td>
+<td>YYYY-MM-DD    日期值</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>3</td>
+<td>‘-838:59:59’/‘838:59:59’</td>
+<td>HH:MM:SS    时间值或持续时间</td>
+</tr>
+<tr>
+<td>YEAR</td>
+<td>1</td>
+<td>1901/2155</td>
+<td>YYYY       年份值</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>8</td>
+<td>1000-01-01 00:00:00/9999-12-31 23:59:59</td>
+<td>YYYY-MM-DD HH:MM:SS 混合日期和时间值</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td>4</td>
+<td>1970-01-01 00:00:00/2037</td>
+<td>YYYYMMDD HHMMSS 混合日期和时间值，时间戳</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
 
       
     </div>
@@ -412,8 +570,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/18/node服务编写/" rel="next" title="node服务编写">
-                <i class="fa fa-chevron-left"></i> node服务编写
+              <a href="/2019/06/18/内网映射/" rel="next" title="内网映射">
+                <i class="fa fa-chevron-left"></i> 内网映射
               </a>
             
           </div>
@@ -554,7 +712,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置环境变量"><span class="nav-number">1.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成data文件"><span class="nav-number">2.</span> <span class="nav-text">生成data文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动服务"><span class="nav-number">3.</span> <span class="nav-text">启动服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录mysql"><span class="nav-number">4.</span> <span class="nav-text">登录mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询用户密码"><span class="nav-number">5.</span> <span class="nav-text">查询用户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置（或修改）root用户密码"><span class="nav-number">6.</span> <span class="nav-text">设置（或修改）root用户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加用户"><span class="nav-number">7.</span> <span class="nav-text">添加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除用户"><span class="nav-number">8.</span> <span class="nav-text">删除用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改远程连接授权"><span class="nav-number">9.</span> <span class="nav-text">修改远程连接授权:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退出mysql"><span class="nav-number">10.</span> <span class="nav-text">退出mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql创建数据库字符集的选择"><span class="nav-number">11.</span> <span class="nav-text">Mysql创建数据库字符集的选择</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置环境变量"><span class="nav-number">1.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成data文件"><span class="nav-number">2.</span> <span class="nav-text">生成data文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动服务"><span class="nav-number">3.</span> <span class="nav-text">启动服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录mysql"><span class="nav-number">4.</span> <span class="nav-text">登录mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询用户密码"><span class="nav-number">5.</span> <span class="nav-text">查询用户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置（或修改）root用户密码"><span class="nav-number">6.</span> <span class="nav-text">设置（或修改）root用户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加用户"><span class="nav-number">7.</span> <span class="nav-text">添加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除用户"><span class="nav-number">8.</span> <span class="nav-text">删除用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改远程连接授权"><span class="nav-number">9.</span> <span class="nav-text">修改远程连接授权:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退出mysql"><span class="nav-number">10.</span> <span class="nav-text">退出mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql创建数据库字符集的选择"><span class="nav-number">11.</span> <span class="nav-text">Mysql创建数据库字符集的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL支持的数据类型"><span class="nav-number">12.</span> <span class="nav-text">MySQL支持的数据类型</span></a></li></ol></div>
             
 
           </div>
