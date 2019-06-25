@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="-node -express,">
+  <meta name="keywords" content="-MySQL,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="部署环境">
-<meta name="keywords" content="-node -express">
+<meta name="description" content="安装lnmp1wget http://soft.vpser.net/lnmp/lnmp1.6.tar.gz -cO lnmp1.6.tar.gz &amp;amp;&amp;amp; tar zxf lnmp1.6.tar.gz &amp;amp;&amp;amp; cd lnmp1.6 &amp;amp;&amp;amp; ./install.sh lnmp安装FTP``` cd lnmp1.6  //其他版本的话自行更改和确定目录位置 执行">
+<meta name="keywords" content="-MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安装和部署">
-<meta property="og:url" content="https://xingshijun.github.io/2019/06/18/安装和部署/index.html">
+<meta property="og:title" content="lnmp环境安装">
+<meta property="og:url" content="https://xingshijun.github.io/2019/06/25/lnmp环境安装/index.html">
 <meta property="og:site_name" content="All roads lead to Rome">
-<meta property="og:description" content="部署环境">
+<meta property="og:description" content="安装lnmp1wget http://soft.vpser.net/lnmp/lnmp1.6.tar.gz -cO lnmp1.6.tar.gz &amp;amp;&amp;amp; tar zxf lnmp1.6.tar.gz &amp;amp;&amp;amp; cd lnmp1.6 &amp;amp;&amp;amp; ./install.sh lnmp安装FTP``` cd lnmp1.6  //其他版本的话自行更改和确定目录位置 执行">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-21T05:51:48.864Z">
+<meta property="og:updated_time" content="2019-06-25T05:49:52.373Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安装和部署">
-<meta name="twitter:description" content="部署环境">
+<meta name="twitter:title" content="lnmp环境安装">
+<meta name="twitter:description" content="安装lnmp1wget http://soft.vpser.net/lnmp/lnmp1.6.tar.gz -cO lnmp1.6.tar.gz &amp;amp;&amp;amp; tar zxf lnmp1.6.tar.gz &amp;amp;&amp;amp; cd lnmp1.6 &amp;amp;&amp;amp; ./install.sh lnmp安装FTP``` cd lnmp1.6  //其他版本的话自行更改和确定目录位置 执行">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://xingshijun.github.io/2019/06/18/安装和部署/">
+  <link rel="canonical" href="https://xingshijun.github.io/2019/06/25/lnmp环境安装/">
 
 
 
 
 
-  <title>安装和部署 | All roads lead to Rome</title>
+  <title>lnmp环境安装 | All roads lead to Rome</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xingshijun.github.io/2019/06/18/安装和部署/">
+    <link itemprop="mainEntityOfPage" href="https://xingshijun.github.io/2019/06/25/lnmp环境安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xing Shi Jun">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">安装和部署</h1>
+          <h1 class="post-title" itemprop="name headline">lnmp环境安装</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-18T11:22:35+08:00">
-                2019-06-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-25T11:22:35+08:00">
+                2019-06-25
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
                   </a>
                 </span>
 
@@ -352,12 +352,12 @@
       
 
       
-        <h3 id="部署环境"><a href="#部署环境" class="headerlink" title="部署环境"></a>部署环境</h3><a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">npm install express --save -g</span><br><span class="line">npm install express-generator --save -g</span><br><span class="line">express projectname //创建项目目录</span><br><span class="line">cd projectname //进入项目</span><br><span class="line">npm install //安装依赖</span><br><span class="line">npm start //开启服务</span><br><span class="line"></span><br><span class="line">bin: 用于应用启动，可在里面设置启动的端口号等。</span><br><span class="line"></span><br><span class="line">/public: 静态资源目录</span><br><span class="line"></span><br><span class="line">/routes：可以认为是controller（控制器）目录，路由。</span><br><span class="line"></span><br><span class="line">/views: jade模板目录，可以认为是view(视图)目录</span><br></pre></td></tr></table></figure>
-
-<h3 id="利用-Express-托管静态文件"><a href="#利用-Express-托管静态文件" class="headerlink" title="利用 Express 托管静态文件"></a>利用 Express 托管静态文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.static(&apos;public&apos;))</span><br><span class="line">app.use(&apos;/static&apos;, express.static(path.join(__dirname, &apos;public&apos;)))</span><br></pre></td></tr></table></figure>
-
-
+        <h3 id="安装lnmp"><a href="#安装lnmp" class="headerlink" title="安装lnmp"></a>安装lnmp</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://soft.vpser.net/lnmp/lnmp1.6.tar.gz -cO lnmp1.6.tar.gz &amp;&amp; tar zxf lnmp1.6.tar.gz &amp;&amp; cd lnmp1.6 &amp;&amp; ./install.sh lnmp</span><br></pre></td></tr></table></figure></code></pre><h3 id="安装FTP"><a href="#安装FTP" class="headerlink" title="安装FTP"></a>安装FTP</h3><pre><code>```
+cd lnmp1.6  //其他版本的话自行更改和确定目录位置
+执行  ./pureftpd.sh 
+``` 
+`lnmp ftp add` 添加ftp账号 
+设置ftp访问目录 一般是 `/home/wwwroot`</code></pre>
       
     </div>
     
@@ -374,7 +374,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/node-express/" rel="tag"># -node -express</a>
+            <a href="/tags/MySQL/" rel="tag"># -MySQL</a>
           
         </div>
       
@@ -387,8 +387,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/07/JavaScript数据类型和数据结构/" rel="next" title="JavaScript数据类型和数据结构">
-                <i class="fa fa-chevron-left"></i> JavaScript数据类型和数据结构
+              <a href="/2019/06/18/MySQL安装使用/" rel="next" title="MySQL安装使用">
+                <i class="fa fa-chevron-left"></i> MySQL安装使用
               </a>
             
           </div>
@@ -396,10 +396,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/18/node结合MySQL/" rel="prev" title="node结合MySQL.md">
-                node结合MySQL.md <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -478,7 +474,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -533,7 +529,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#部署环境"><span class="nav-number">1.</span> <span class="nav-text">部署环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用-Express-托管静态文件"><span class="nav-number">2.</span> <span class="nav-text">利用 Express 托管静态文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装lnmp"><span class="nav-number">1.</span> <span class="nav-text">安装lnmp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装FTP"><span class="nav-number">2.</span> <span class="nav-text">安装FTP</span></a></li></ol></div>
             
 
           </div>
