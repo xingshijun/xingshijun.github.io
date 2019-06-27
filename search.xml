@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[forEach和map]]></title>
+    <url>%2F2019%2F06%2F27%2FJavaScript%2FforEach%E5%92%8Cmap%2F</url>
+    <content type="text"><![CDATA[forEacharr.forEach(callback[, thisArg]);//返回值：undefined callback 123currentValue 数组中正在处理的当前元素index 数组中正在处理的当前元素索引array 正在操作的数组 thisArg 可选当执行回调函数时用作 this 的值 注意： 没有办法中止或者跳出 forEach() 循环，除了抛出一个异常。如果你需要这样，使用 forEach() 方法是错误的。 maparr.map(callback[, thisArg]);//返回值：一个新数组，每个元素都是回调函数的结果callback 123currentValue 数组中正在处理的当前元素index 数组中正在处理的当前元素索引array 正在操作的数组 thisArg 可选当执行回调函数时用作 this 的值 map 不修改调用它的原数组本身 使用 map 方法处理数组时，数组元素的范围是在 callback 方法第一次调用之前就已经确定了。在 map 方法执行的过程中：原数组中新增加的元素将不会被 callback 访问到；若已经存在的元素被改变或删除了，则它们的传递到 callback 的值是 map 方法遍历到它们的那一时刻的值；而被删除的元素将不会被访问到。 forEach和map的区别 返回值不同 forEach 返回undefined map 返回一个新数组，每个元素都是回调函数的结果 修改原数组 forEach 会改变原数组的数据 map 会创建一个新数组不会改变原数组的数据]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[for...of和for...in的区别]]></title>
+    <url>%2F2019%2F06%2F27%2FJavaScript%2Ffor-of%E5%92%8Cfor-in%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[for…in 语句以原始插入顺序迭代对象的可枚举属性，还会遍历到继承的属性。 for…of 语句遍历可迭代对象定义要迭代的数据，仅会遍历自有属性。 12345678910111213141516171819Object.prototype.objCustom = function() &#123;&#125;; Array.prototype.arrCustom = function() &#123;&#125;;let iterable = [3, 5, 7];iterable.foo = 'hello';for (let i in iterable) &#123; console.log(i); // logs 0, 1, 2, "foo", "arrCustom", "objCustom"&#125;for (let i in iterable) &#123; if (iterable.hasOwnProperty(i)) &#123; console.log(i); // logs 0, 1, 2, "foo" &#125;&#125;for (let i of iterable) &#123; console.log(i); // logs 3, 5, 7&#125;]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JSON.parse的用法]]></title>
+    <url>%2F2019%2F06%2F26%2FJavaScript%2FJSON-parse%E7%9A%84%E7%94%A8%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[JSON.parse(text[, reviver])text要被解析成JavaScript值的字符串，关于JSON的语法格式。reviver 可选转换器, 如果传入该参数(函数)，可以用来修改解析生成的原始值，调用时机在parse函数返回之前 reviver用法123456789101112131415161718JSON.parse('&#123;"p": 5&#125;', function (k, v) &#123; if(k === '') return v; // 如果到了最顶层，则直接返回属性值， return v * 2; // 否则将属性值变为原来的 2 倍。&#125;); // &#123; p: 10 &#125;JSON.parse('&#123;"one": 1, "two": 2,"three": &#123;"four": 4, "five": &#123;"six": 6&#125;&#125;&#125;', function (k, v) &#123; console.log(k); // 输出当前的属性名，从而得知遍历顺序是从内向外的， // 最后一个属性名会是个空字符串。 return v; // 返回原始属性值，相当于没有传递 reviver 参数。&#125;);// one// two// four// six// five// three // "" *IE7及以下使用JSON1234567891011121314151617181920212223242526272829303132333435363738if (!window.JSON) &#123; window.JSON = &#123; parse: function(sJSON) &#123; return eval('(' + sJSON + ')'); &#125;, stringify: (function () &#123; var toString = Object.prototype.toString; var isArray = Array.isArray || function (a) &#123; return toString.call(a) === '[object Array]'; &#125;; var escMap = &#123;'"': '\\"', '\\': '\\\\', '\b': '\\b', '\f': '\\f', '\n': '\\n', '\r': '\\r', '\t': '\\t'&#125;; var escFunc = function (m) &#123; return escMap[m] || '\\u' + (m.charCodeAt(0) + 0x10000).toString(16).substr(1); &#125;; var escRE = /[\\"\u0000-\u001F\u2028\u2029]/g; return function stringify(value) &#123; if (value == null) &#123; return 'null'; &#125; else if (typeof value === 'number') &#123; return isFinite(value) ? value.toString() : 'null'; &#125; else if (typeof value === 'boolean') &#123; return value.toString(); &#125; else if (typeof value === 'object') &#123; if (typeof value.toJSON === 'function') &#123; return stringify(value.toJSON()); &#125; else if (isArray(value)) &#123; var res = '['; for (var i = 0; i &lt; value.length; i++) res += (i ? ', ' : '') + stringify(value[i]); return res + ']'; &#125; else if (toString.call(value) === '[object Object]') &#123; var tmp = []; for (var k in value) &#123; if (value.hasOwnProperty(k)) tmp.push(stringify(k) + ': ' + stringify(value[k])); &#125; return '&#123;' + tmp.join(', ') + '&#125;'; &#125; &#125; return '"' + value.toString().replace(escRE, escFunc) + '"'; &#125;; &#125;)() &#125;;&#125;]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript JSON</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[apply和call的区别]]></title>
+    <url>%2F2019%2F06%2F26%2FJavaScript%2Fapply%E5%92%8Ccall%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[applyapply() 方法调用一个具有给定this值的函数，以及作为一个数组（或类似数组对象）提供的参数。 123var numbers = [5, 6, 2, 3, 7];var max = Math.max.apply(null, numbers);console.log(max);// expected output: 7 callcall() 方法使用一个指定的 this 值和单独给出的一个或多个参数来调用一个函数。 1234567891011function Product(name, price) &#123; this.name = name; this.price = price;&#125;function Food(name, price) &#123; Product.call(this, name, price); this.category = 'food';&#125;console.log(new Food('cheese', 5).name);// expected output: "cheese"]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Boolean]]></title>
+    <url>%2F2019%2F06%2F26%2FJavaScript%2FBoolean%2F</url>
+    <content type="text"><![CDATA[new Boolean([value])12345678new Boolean(0);//Boolean &#123;false&#125;new Boolean(-0);//Boolean &#123;false&#125;new Boolean(null);//Boolean &#123;false&#125;new Boolean(false);//Boolean &#123;false&#125;new Boolean(NaN);//Boolean &#123;false&#125;new Boolean(undefined);//Boolean &#123;false&#125;new Boolean("");//Boolean &#123;false&#125;new Boolean(document.all);//Boolean &#123;false&#125; 当 Boolean 对象用于条件语句的时候（译注：意为直接应用于条件语句），任何不是 undefined 和 null 的对象，包括值为 false 的 Boolean 对象，都会被当做 true 来对待 123456789var x = new Boolean(false);if (x) &#123;//!x 为false而不是true 即if(x) =&gt; Boolean(x) =&gt; Boolean(new Boolean(false)) =&gt; true // 这里的代码会被执行&#125;var x = false;//x 非Boolean 对象if (x) &#123; // 这里的代码不会执行&#125; 对于任何对象，即使是值为 false 的 Boolean 对象，当将其传给 Boolean 函数时，生成的 Boolean 对象的值都是 true 1234var myFalse = new Boolean(false); // falsevar g = new Boolean(myFalse); // truevar myString = new String("Hello");var s = new Boolean(myString); // true]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[lnmp环境安装]]></title>
+    <url>%2F2019%2F06%2F25%2Fserver%2Flnmp%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[安装lnmp1wget http://soft.vpser.net/lnmp/lnmp1.6.tar.gz -cO lnmp1.6.tar.gz &amp;&amp; tar zxf lnmp1.6.tar.gz &amp;&amp; cd lnmp1.6 &amp;&amp; ./install.sh lnmp 安装FTP``` cd lnmp1.6 //其他版本的话自行更改和确定目录位置 执行 ./pureftpd.sh ``` `lnmp ftp add` 添加ftp账号 设置ftp访问目录 一般是 `/home/wwwroot`]]></content>
+      <categories>
+        <category>Lump</category>
+      </categories>
+      <tags>
+        <tag>Lump</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[node服务安装和部署]]></title>
+    <url>%2F2019%2F06%2F18%2FNodeJS%2Fnode%E6%9C%8D%E5%8A%A1%E5%AE%89%E8%A3%85%E5%92%8C%E9%83%A8%E7%BD%B2%2F</url>
+    <content type="text"><![CDATA[部署环境 1234567891011121314npm install express --save -gnpm install express-generator --save -gexpress projectname //创建项目目录cd projectname //进入项目npm install //安装依赖npm start //开启服务bin: 用于应用启动，可在里面设置启动的端口号等。/public: 静态资源目录/routes：可以认为是controller（控制器）目录，路由。/views: jade模板目录，可以认为是view(视图)目录 利用 Express 托管静态文件12app.use(express.static(&apos;public&apos;))app.use(&apos;/static&apos;, express.static(path.join(__dirname, &apos;public&apos;)))]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>node express</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[node结合MySQL]]></title>
+    <url>%2F2019%2F06%2F18%2FNodeJS%2Fnode%E7%BB%93%E5%90%88MySQL%2F</url>
+    <content type="text"><![CDATA[使用node进行数据库操作 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115var mysql = require(&apos;mysql&apos;);var connection = mysql.createConnection(&#123; host : &apos;localhost&apos;, user : &apos;root&apos;, password : &apos;123456&apos;, database : &apos;test&apos;&#125;);/* MySql数据库连接参数说明：参数 描述host 主机地址 （默认：localhost）user 用户名password 密码port 端口号 （默认：3306）database 数据库名charset 连接字符集（默认：&apos;UTF8_GENERAL_CI&apos;，注意字符集的字母都要大写）localAddress 此IP用于TCP连接（可选）socketPath 连接到unix域路径，当使用 host 和 port 时会被忽略timezone 时区（默认：&apos;local&apos;）connectTimeout 连接超时（默认：不限制；单位：毫秒）stringifyObjects 是否序列化对象typeCast 是否将列值转化为本地JavaScript类型值 （默认：true）queryFormat 自定义query语句格式化方法supportBigNumbers 数据库支持bigint或decimal类型列时，需要设此option为true （默认：false）bigNumberStrings supportBigNumbers和bigNumberStrings启用 强制bigint或decimal列以JavaScript字符串类型返回（默认：false）dateStrings 强制timestamp,datetime,data类型以字符串类型返回，而不是JavaScript Date类型（默认：false）debug 开启调试（默认：false）multipleStatements 是否许一个query中有多个MySQL语句 （默认：false）flags 用于修改连接标志ssl 使用ssl参数（与crypto.createCredenitals参数格式一至）或一个包含ssl配置文件名称的字符串，目前只捆绑Amazon RDS的配置文件 */// 执行数据库连接 connection.connect();var sqlstring = &quot;&quot;; // 创建表sqlstring = &quot;Create Table MYTABLE (name VARCHAR(20), sex CHAR(1))&quot;connection.query(sqlstring, function (err, results, fields) &#123; if (err) &#123; console.log(&apos;[UPDATE ERROR] - &apos;, err.message); return; &#125; console.log(&apos;--------------------------CREATE----------------------------&apos;); console.log(&apos;CREATE TABLE:&apos;, results); console.log(&apos;------------------------------------------------------------\n\n&apos;); &#125;);// 插入数据sqlstring = &quot;Insert into MYTABLE Values(&apos;Michael&apos;, &apos;m&apos;)&quot;;connection.query(sqlstring, function (err, result) &#123; if(err)&#123; console.log(&apos;[INSERT ERROR] - &apos;, err.message); return; &#125; console.log(&apos;--------------------------INSERT----------------------------&apos;); console.log(&apos;INSERT ID - &apos;, result); console.log(&apos;------------------------------------------------------------\n\n&apos;); &#125;);// 更新数据sqlstring = &quot;Update MYTABLE Set name = &apos;Michael Jordan&apos; Where sex = &apos;m&apos;&quot;;connection.query(sqlstring, function (err, result) &#123; if(err)&#123; console.log(&apos;[UPDATE ERROR] - &apos;, err.message); return; &#125; console.log(&apos;--------------------------UPDATE----------------------------&apos;); console.log(&apos;UPDATE affectedRows - &apos;, result.affectedRows); console.log(&apos;------------------------------------------------------------\n\n&apos;); &#125;);// 查询数据sqlstring = &quot;Select * From MYTABLE&quot;;connection.query(sqlstring, function (err, result) &#123; if(err)&#123; console.log(&apos;[SELECT ERROR] - &apos;, err.message); return; &#125; console.log(&apos;--------------------------SELECT---------------------------&apos;); console.log(&apos;SELECT - &apos;, result); console.log(&apos;------------------------------------------------------------\n\n&apos;); &#125;);//删除数据sqlstring = &quot;Delete From MYTABLE&quot;;connection.query(sqlstring, function (err, result) &#123; if(err)&#123; console.log(&apos;[DELETE ERROR] - &apos;, err.message); return; &#125; console.log(&apos;--------------------------DELETE----------------------------&apos;); console.log(&apos;DELETE affectedRows - &apos;, result.affectedRows); console.log(&apos;------------------------------------------------------------\n\n&apos;); &#125;);//删除表格sqlstring = &quot;Drop Table MYTABLE&quot;;connection.query(sqlstring, function (err, result) &#123; if(err)&#123; console.log(&apos;[DROP ERROR] - &apos;, err.message); return; &#125; console.log(&apos;--------------------------DROP-----------------------------&apos;); console.log(&apos;DROP TABLE :&apos;, result.affectedRows); console.log(&apos;------------------------------------------------------------\n\n&apos;); &#125;);// 断开数据库连接connection.end();]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>node MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[node服务编写]]></title>
+    <url>%2F2019%2F06%2F18%2FNodeJS%2Fnode%E6%9C%8D%E5%8A%A1%E7%BC%96%E5%86%99%2F</url>
+    <content type="text"><![CDATA[node发送请求 123456789101112131415161718192021222324var request = require('request');getData('https://www.baidu.com', &#123; a: '1', b: '2' &#125;).then((data) =&gt; &#123; res.send(data); &#125;)const getData = (url, param) =&gt; &#123; return new Promise((resolve, reject) =&gt; &#123; request.post(&#123; url: url, form: param &#125;, function (error, response, data) &#123; //如果请求成功则打印数据 否则显示错误信息 if (!error &amp;&amp; response.statusCode == 200) &#123; console.log(data); resolve(data) &#125; else &#123; console.log(error); console.log(response.statusCode); &#125; &#125;); &#125;)&#125; node定时任务 安装node-schedule yarn add node-schedule 1234567var schedule = require('node-schedule');function scheduleCronstyle()&#123;//定时任务 每分钟的第30秒执行 schedule.scheduleJob('30 * * * * *',function()&#123; console.log('scheduleCronstyle:'+new Date()); &#125;);&#125;scheduleCronstyle();//开启定时器 通配符意义 * * * * * * 6个占位符从左到右分别代表：秒、分、时、日、月、周几 每分钟的第30秒触发： ‘30 * * * * *’ 每小时的1分30秒触发 ：’30 1 * * * *’ 每天的凌晨1点1分30秒触发 ：’30 1 1 * * *’ 每月的1日1点1分30秒触发 ：’30 1 1 1 * *’ 2019年的1月1日1点1分30秒触发 ：’30 1 1 1 2019*’ 每周1的1点1分30秒触发 ：’30 1 1 * * 1’ linux后台运行node服务12345npm install -g pm2pm2 start app.js -i max //启动一个使用所有CPU核心的集群 app.js是启动服务的jspm2 list //列出所有pm2开启的进程pm2 monit //查看运行状态pm2 logs //打印日志]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>node express</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL安装使用]]></title>
+    <url>%2F2019%2F06%2F18%2Fserver%2FMySQL%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[###下载MySQLhttps://dev.mysql.com/downloads/mysql/ 配置环境变量变量名：MYSQL_HOME变量值：C:\Program Files (x86)\mysql-8.0.16-winx64 你的安装路径path里添加：%MYSQL_HOME%\bin; 生成data文件以管理员身份运行cmd进入C:\Program Files (x86)\mysql-8.0.16-winx64\bin下 执行命令：mysqld --initialize-insecure --user=mysql 在C:\Program Files (x86)\mysql-8.0.16-winx64目录下生成data目录 启动服务执行命令：net start mysql 启动mysql服务1.启动服务失败、服务名无效解决方法：执行命令：mysqld -install 即可（不需要my.ini配置文件）2.服务正在启动或停止中解决方法：需要去任务管理器中把mysql相关进程结束掉，重新启动即可 登录mysql登录mysql:(因为之前没设置密码，所以密码为空，不用输入密码，直接回车即可）C:\Program Files (x86)\mysql-8.0.16-winx64\bin&gt;mysql -u root -pEnter password: ****** 查询用户密码mysql&gt; select host,user,authentication_string from mysql.user; 设置（或修改）root用户密码设置（或修改）root用户密码：mysql&gt; ALTER user &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;123456&#39;; 设置密码为123456mysql&gt; flush privileges; 相当于保存，执行此命令后，设置才生效，若不执行，还是之前的密码不变 添加用户123456mysql&gt; create user &apos;time&apos;@&apos;localhost&apos; identified by &apos;123456&apos;;// time 用户名// localhost 只能本地访问，写为%代表所有外网IP都可以访问// 123456 为用户密码然后需要刷新授权mysql&gt; flush privileges; 删除用户123mysql&gt; delete from mysql.user where user=&apos;time&apos; and host=&apos;localhost&apos;;// 然后需要刷新授权 否则下次添加用户时会报错mysql&gt; flush privileges; 修改远程连接授权:123mysql&gt; update user set host=&apos;%&apos; where user=&apos;root&apos;; // %代表所有外网IP都可以访问// 然后需要刷新授权 mysql&gt; flush privileges; 退出mysqlmysql&gt; quit Mysql创建数据库字符集的选择 一般选择utf8.下面介绍一下utf8与utfmb4的区别 utf8mb4兼容utf8，且比utf8能表示更多的字符 unicode编码区从1 ～ 126就属于传统utf8区，utf8mb4也兼容这个区，126行以下就是utf8mb4扩充区 排序说明 utf8_general_ci 不区分大小写，这个你在注册用户名和邮箱的时候就要使用。 utf8_general_cs 区分大小写，如果用户名和邮箱用这个 就会造成不良后果 utf8_bin:字符串每个字符串用二进制数据编译存储。 区分大小写，而且可以存二进制的内容 utf8_unicode_ci和utf8_general_ci对中、英文来说没有实质的差别。 utf8_general_ci校对速度快，但准确度稍差。（准确度够用，一般建库选择这个） utf8_unicode_ci准确度高，但校对速度稍慢 MySQL支持的数据类型 数值类型 整数类型 字节 范围（有符号） 范围（无符号） 用途 TINYINT 1字节 (-128,127) (0,255) 小整数值 SMALLINT 2字节 (-32 768,32 767) (0,65 535) 大整数值 MEDIUMINT 3字节 (-8 388 608,8 388 607) (0,16 777 215) 大整数值 INT或INTEGER 4字节 (-2 147 483 648,2 147 483 647) (0,4 294 967 295) 大整数值 BIGINT 8字节 (-9 233 372 036 854 775 808,9 223 372 036 854 775 807) (0,18 446 744 073 709 551 615) 极大整数值 FLOAT(单精度浮点数值 4字节) (-3.402 823 466 E+38,1.175 494 351 E-38),0,(1.175 494 351 E-38,3.402 823 466 351 E+38) 0,(1.175 494 351 E-38,3.402 823 466 E+38) DOUBLE ( 双精度浮点数值 8字节 ) (1.797 693 134 862 315 7 E+308,2.225 073 858 507 201 4 E-308),0,(2.225 073 858 507 201 4 E-308,1.797 693 134 862 315 7 E+308) 0,(2.225 073 858 507 201 4 E-308,1.797 693 134 862 315 7 E+308) DECIMAL 对DECIMAL(M,D) ，如果M&gt;D，为M+2否则为D+2 依赖于M和D的值 依赖于M和D的值 字符串类型 字符串类型 字节大小 描述及存储需求 CHAR 0-255字节 定长字符串 VARCHAR 0-255字节 变长字符串 TINYBLOB 0-255字节 不超过 255 个字符的二进制字符串 TINYTEXT 0-255字节 短文本字符串 BLOB 0-65535字节 二进制形式的长文本数据 TEXT 0-65535字节 长文本数据 MEDIUMBLOB 0-16 777 215字节 二进制形式的中等长度文本数据 MEDIUMTEXT 0-16 777 215字节 中等长度文本数据 LOGNGBLOB 0-4 294 967 295字节 二进制形式的极大文本数据 LONGTEXT 0-4 294 967 295字节 极大文本数据 VARBINARY(M) 允许长度0-M个字节的定长字节符串，值的长度+1个字节 BINARY(M) 允许长度0-M个字节的定长字节符串 日期和时间类型 类型 大小(字节) 范围 格式 用途 DATE 4 1000-01-01/9999-12-31 YYYY-MM-DD 日期值 TIME 3 ‘-838:59:59’/‘838:59:59’ HH:MM:SS 时间值或持续时间 YEAR 1 1901/2155 YYYY 年份值 DATETIME 8 1000-01-01 00:00:00/9999-12-31 23:59:59 YYYY-MM-DD HH:MM:SS 混合日期和时间值 TIMESTAMP 4 1970-01-01 00:00:00/2037 YYYYMMDD HHMMSS 混合日期和时间值，时间戳 mySQL添加用户可访问数据库12grant all privileges on database.* to username@&apos;%&apos; identified by &apos;password&apos;;flush privileges;]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[内网映射]]></title>
+    <url>%2F2019%2F06%2F18%2Fserver%2F%E5%86%85%E7%BD%91%E6%98%A0%E5%B0%84%2F</url>
+    <content type="text"><![CDATA[注册并使用Sunny-Ngrok进行内网映射 123官网 https://www.ngrok.cc/注册登录后 打开【隧道管理】=&gt; 【开通隧道】开通成功后下载对应系统的客户端 运行后输入【隧道管理】中的隧道id 开启成功即可使用赠送的域名进行访问本地映射的端口]]></content>
+      <tags>
+        <tag>Server</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JavaScript数据类型和数据结构]]></title>
+    <url>%2F2019%2F06%2F07%2FJavaScript%2FJavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%2F</url>
+    <content type="text"><![CDATA[最新的 ECMAScript 标准定义了 7 种数据类型 原始值：除 Object 以外的所有类型都是不可变的（值本身无法被改变）6 种原始类型:Boolean布尔表示一个逻辑实体，可以有两个值：true 和 false NullNull 类型只有一个值： null Undefined一个没有被赋值的变量会有个默认值undefined NumberStringSymbol (ECMAScript 6 新定义)符号类型是唯一的并且是不可修改的, 并且也可以用来作为Object的key的值 Object]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+</search>
