@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT, JavaScript, Node, MySQL">
+  <meta name="keywords" content="JavaScript JSON,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="JSON.parse(text[, reviver])text要被解析成JavaScript值的字符串，关于JSON的语法格式。reviver 可选转换器, 如果传入该参数(函数)，可以用来修改解析生成的原始值，调用时机在parse函数返回之前 reviver用法123456789101112131415161718JSON.parse(&apos;&amp;#123;&quot;p&quot;: 5&amp;#125;&apos;, function">
+<meta name="description" content="JSON.parse(text[, reviver])text要被解析成JavaScript值的字符串，关于JSON的语法格式。reviver 可选转换器, 如果传入该参数(函数)，可以用来修改解析生成的原始值，调用时机在parse函数返回之前">
+<meta name="keywords" content="JavaScript JSON">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSON.parse的用法">
-<meta property="og:url" content="https://xingshijun.github.io/2019/06/26/JSON-parse的用法/index.html">
+<meta property="og:url" content="https://xingshijun.github.io/2019/06/26/JavaScript/JSON-parse的用法/index.html">
 <meta property="og:site_name" content="All roads lead to Rome">
-<meta property="og:description" content="JSON.parse(text[, reviver])text要被解析成JavaScript值的字符串，关于JSON的语法格式。reviver 可选转换器, 如果传入该参数(函数)，可以用来修改解析生成的原始值，调用时机在parse函数返回之前 reviver用法123456789101112131415161718JSON.parse(&apos;&amp;#123;&quot;p&quot;: 5&amp;#125;&apos;, function">
+<meta property="og:description" content="JSON.parse(text[, reviver])text要被解析成JavaScript值的字符串，关于JSON的语法格式。reviver 可选转换器, 如果传入该参数(函数)，可以用来修改解析生成的原始值，调用时机在parse函数返回之前">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-27T01:38:28.455Z">
+<meta property="og:updated_time" content="2019-06-27T09:20:58.267Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSON.parse的用法">
-<meta name="twitter:description" content="JSON.parse(text[, reviver])text要被解析成JavaScript值的字符串，关于JSON的语法格式。reviver 可选转换器, 如果传入该参数(函数)，可以用来修改解析生成的原始值，调用时机在parse函数返回之前 reviver用法123456789101112131415161718JSON.parse(&apos;&amp;#123;&quot;p&quot;: 5&amp;#125;&apos;, function">
+<meta name="twitter:description" content="JSON.parse(text[, reviver])text要被解析成JavaScript值的字符串，关于JSON的语法格式。reviver 可选转换器, 如果传入该参数(函数)，可以用来修改解析生成的原始值，调用时机在parse函数返回之前">
 
 
 
@@ -119,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="https://xingshijun.github.io/2019/06/26/JSON-parse的用法/">
+  <link rel="canonical" href="https://xingshijun.github.io/2019/06/26/JavaScript/JSON-parse的用法/">
 
 
 
@@ -262,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xingshijun.github.io/2019/06/26/JSON-parse的用法/">
+    <link itemprop="mainEntityOfPage" href="https://xingshijun.github.io/2019/06/26/JavaScript/JSON-parse的用法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xing Shi Jun">
@@ -302,6 +303,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -330,6 +353,7 @@
 
       
         <h3 id="JSON-parse-text-reviver"><a href="#JSON-parse-text-reviver" class="headerlink" title="JSON.parse(text[, reviver])"></a>JSON.parse(text[, reviver])</h3><p>text<br>要被解析成JavaScript值的字符串，关于JSON的语法格式。<br>reviver 可选<br>转换器, 如果传入该参数(函数)，可以用来修改解析生成的原始值，调用时机在parse函数返回之前</p>
+<a id="more"></a>
 <h4 id="reviver用法"><a href="#reviver用法" class="headerlink" title="reviver用法"></a>reviver用法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">'&#123;"p": 5&#125;'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">k, v</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(k === <span class="string">''</span>) <span class="keyword">return</span> v;     <span class="comment">// 如果到了最顶层，则直接返回属性值，</span></span><br><span class="line">    <span class="keyword">return</span> v * <span class="number">2</span>;              <span class="comment">// 否则将属性值变为原来的 2 倍。</span></span><br><span class="line">&#125;);                            <span class="comment">// &#123; p: 10 &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">'&#123;"one": 1, "two": 2,"three": &#123;"four": 4, "five": &#123;"six": 6&#125;&#125;&#125;'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">k, v</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(k); <span class="comment">// 输出当前的属性名，从而得知遍历顺序是从内向外的，</span></span><br><span class="line">                    <span class="comment">// 最后一个属性名会是个空字符串。</span></span><br><span class="line">    <span class="keyword">return</span> v;       <span class="comment">// 返回原始属性值，相当于没有传递 reviver 参数。</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// one</span></span><br><span class="line"><span class="comment">// two</span></span><br><span class="line"><span class="comment">// four</span></span><br><span class="line"><span class="comment">// six</span></span><br><span class="line"><span class="comment">// five</span></span><br><span class="line"><span class="comment">// three </span></span><br><span class="line"><span class="comment">// ""</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="IE7及以下使用JSON"><a href="#IE7及以下使用JSON" class="headerlink" title="*IE7及以下使用JSON"></a>*IE7及以下使用JSON</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">window</span>.JSON) &#123;</span><br><span class="line">  <span class="built_in">window</span>.JSON = &#123;</span><br><span class="line">    parse: <span class="function"><span class="keyword">function</span>(<span class="params">sJSON</span>) </span>&#123; <span class="keyword">return</span> <span class="built_in">eval</span>(<span class="string">'('</span> + sJSON + <span class="string">')'</span>); &#125;,</span><br><span class="line">    stringify: (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> toString = <span class="built_in">Object</span>.prototype.toString;</span><br><span class="line">      <span class="keyword">var</span> isArray = <span class="built_in">Array</span>.isArray || <span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123; <span class="keyword">return</span> toString.call(a) === <span class="string">'[object Array]'</span>; &#125;;</span><br><span class="line">      <span class="keyword">var</span> escMap = &#123;<span class="string">'"'</span>: <span class="string">'\\"'</span>, <span class="string">'\\'</span>: <span class="string">'\\\\'</span>, <span class="string">'\b'</span>: <span class="string">'\\b'</span>, <span class="string">'\f'</span>: <span class="string">'\\f'</span>, <span class="string">'\n'</span>: <span class="string">'\\n'</span>, <span class="string">'\r'</span>: <span class="string">'\\r'</span>, <span class="string">'\t'</span>: <span class="string">'\\t'</span>&#125;;</span><br><span class="line">      <span class="keyword">var</span> escFunc = <span class="function"><span class="keyword">function</span> (<span class="params">m</span>) </span>&#123; <span class="keyword">return</span> escMap[m] || <span class="string">'\\u'</span> + (m.charCodeAt(<span class="number">0</span>) + <span class="number">0x10000</span>).toString(<span class="number">16</span>).substr(<span class="number">1</span>); &#125;;</span><br><span class="line">      <span class="keyword">var</span> escRE = <span class="regexp">/[\\"\u0000-\u001F\u2028\u2029]/g</span>;</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">stringify</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (value == <span class="literal">null</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="string">'null'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">'number'</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="built_in">isFinite</span>(value) ? value.toString() : <span class="string">'null'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">'boolean'</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> value.toString();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">'object'</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="keyword">typeof</span> value.toJSON === <span class="string">'function'</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> stringify(value.toJSON());</span><br><span class="line">          &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isArray(value)) &#123;</span><br><span class="line">            <span class="keyword">var</span> res = <span class="string">'['</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; value.length; i++)</span><br><span class="line">              res += (i ? <span class="string">', '</span> : <span class="string">''</span>) + stringify(value[i]);</span><br><span class="line">            <span class="keyword">return</span> res + <span class="string">']'</span>;</span><br><span class="line">          &#125; <span class="keyword">else</span> <span class="keyword">if</span> (toString.call(value) === <span class="string">'[object Object]'</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> tmp = [];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> value) &#123;</span><br><span class="line">              <span class="keyword">if</span> (value.hasOwnProperty(k))</span><br><span class="line">                tmp.push(stringify(k) + <span class="string">': '</span> + stringify(value[k]));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'&#123;'</span> + tmp.join(<span class="string">', '</span>) + <span class="string">'&#125;'</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'"'</span> + value.toString().replace(escRE, escFunc) + <span class="string">'"'</span>;</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;)()</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -347,6 +371,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript-JSON/" rel="tag"># JavaScript JSON</a>
+          
+        </div>
+      
 
       
       
@@ -356,7 +386,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/26/apply和call的区别/" rel="next" title="apply和call的区别">
+              <a href="/2019/06/26/JavaScript/apply和call的区别/" rel="next" title="apply和call的区别">
                 <i class="fa fa-chevron-left"></i> apply和call的区别
               </a>
             
@@ -366,7 +396,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/27/for-of和for-in的区别/" rel="prev" title="for...of和for...in的区别">
+              <a href="/2019/06/27/JavaScript/for-of和for-in的区别/" rel="prev" title="for...of和for...in的区别">
                 for...of和for...in的区别 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -458,7 +488,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -469,7 +499,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

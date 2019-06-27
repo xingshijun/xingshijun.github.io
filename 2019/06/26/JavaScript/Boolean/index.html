@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="-JavaScript -Array,">
+  <meta name="keywords" content="JavaScript,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="forEacharr.forEach(callback[, thisArg]);//返回值：undefinedcallback  123currentValue 数组中正在处理的当前元素index 数组中正在处理的当前元素索引array 正在操作的数组  thisArg 可选当执行回调函数时用作 this 的值    注意： 没有办法中止或者跳出 forEach() 循环，除了抛出一个异常。如果你">
-<meta name="keywords" content="-JavaScript -Array">
+<meta name="description" content="new Boolean([value])12345678new Boolean(0);//Boolean &amp;#123;false&amp;#125;new Boolean(-0);//Boolean &amp;#123;false&amp;#125;new Boolean(null);//Boolean &amp;#123;false&amp;#125;new Boolean(false);//Boolean &amp;#123;false&amp;#">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="forEach和map">
-<meta property="og:url" content="https://xingshijun.github.io/2019/06/27/forEach和map/index.html">
+<meta property="og:title" content="Boolean">
+<meta property="og:url" content="https://xingshijun.github.io/2019/06/26/JavaScript/Boolean/index.html">
 <meta property="og:site_name" content="All roads lead to Rome">
-<meta property="og:description" content="forEacharr.forEach(callback[, thisArg]);//返回值：undefinedcallback  123currentValue 数组中正在处理的当前元素index 数组中正在处理的当前元素索引array 正在操作的数组  thisArg 可选当执行回调函数时用作 this 的值    注意： 没有办法中止或者跳出 forEach() 循环，除了抛出一个异常。如果你">
+<meta property="og:description" content="new Boolean([value])12345678new Boolean(0);//Boolean &amp;#123;false&amp;#125;new Boolean(-0);//Boolean &amp;#123;false&amp;#125;new Boolean(null);//Boolean &amp;#123;false&amp;#125;new Boolean(false);//Boolean &amp;#123;false&amp;#">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-27T06:08:46.338Z">
+<meta property="og:updated_time" content="2019-06-27T09:20:58.231Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="forEach和map">
-<meta name="twitter:description" content="forEacharr.forEach(callback[, thisArg]);//返回值：undefinedcallback  123currentValue 数组中正在处理的当前元素index 数组中正在处理的当前元素索引array 正在操作的数组  thisArg 可选当执行回调函数时用作 this 的值    注意： 没有办法中止或者跳出 forEach() 循环，除了抛出一个异常。如果你">
+<meta name="twitter:title" content="Boolean">
+<meta name="twitter:description" content="new Boolean([value])12345678new Boolean(0);//Boolean &amp;#123;false&amp;#125;new Boolean(-0);//Boolean &amp;#123;false&amp;#125;new Boolean(null);//Boolean &amp;#123;false&amp;#125;new Boolean(false);//Boolean &amp;#123;false&amp;#">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://xingshijun.github.io/2019/06/27/forEach和map/">
+  <link rel="canonical" href="https://xingshijun.github.io/2019/06/26/JavaScript/Boolean/">
 
 
 
 
 
-  <title>forEach和map | All roads lead to Rome</title>
+  <title>Boolean | All roads lead to Rome</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xingshijun.github.io/2019/06/27/forEach和map/">
+    <link itemprop="mainEntityOfPage" href="https://xingshijun.github.io/2019/06/26/JavaScript/Boolean/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xing Shi Jun">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">forEach和map</h1>
+          <h1 class="post-title" itemprop="name headline">Boolean</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-27T11:30:52+08:00">
-                2019-06-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-26T11:40:12+08:00">
+                2019-06-26
               </time>
             
 
@@ -302,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -330,32 +352,15 @@
       
 
       
-        <h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3><p><code>arr.forEach(callback[, thisArg]);//返回值：undefined</code><br>callback </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">currentValue 数组中正在处理的当前元素</span><br><span class="line">index 数组中正在处理的当前元素索引</span><br><span class="line">array 正在操作的数组</span><br></pre></td></tr></table></figure>
+        <h3 id="new-Boolean-value"><a href="#new-Boolean-value" class="headerlink" title="new Boolean([value])"></a>new Boolean([value])</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="number">0</span>);<span class="comment">//Boolean &#123;false&#125;</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="number">-0</span>);<span class="comment">//Boolean &#123;false&#125;</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">null</span>);<span class="comment">//Boolean &#123;false&#125;</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>);<span class="comment">//Boolean &#123;false&#125;</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">NaN</span>);<span class="comment">//Boolean &#123;false&#125;</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">undefined</span>);<span class="comment">//Boolean &#123;false&#125;</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="string">""</span>);<span class="comment">//Boolean &#123;false&#125;</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="built_in">document</span>.all);<span class="comment">//Boolean &#123;false&#125;</span></span><br></pre></td></tr></table></figure>
 
-<p>thisArg 可选<br><code>当执行回调函数时用作 this 的值</code>  </p>
-<ul>
-<li>注意： 没有办法中止或者跳出 forEach() 循环，除了抛出一个异常。如果你需要这样，使用 forEach() 方法是错误的。<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><code>arr.map(callback[, thisArg]);//返回值：一个新数组，每个元素都是回调函数的结果</code><br>callback <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">currentValue 数组中正在处理的当前元素</span><br><span class="line">index 数组中正在处理的当前元素索引</span><br><span class="line">array 正在操作的数组</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><em>当 Boolean 对象用于条件语句的时候（译注：意为直接应用于条件语句），任何不是 undefined 和 null 的对象，包括值为 false 的 Boolean 对象，都会被当做 true 来对待</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>);</span><br><span class="line"><span class="keyword">if</span> (x) &#123;<span class="comment">//!x 为false而不是true 即if(x)  =&gt;  Boolean(x) =&gt;  Boolean(new Boolean(false)) =&gt; true</span></span><br><span class="line">  <span class="comment">// 这里的代码会被执行</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="literal">false</span>;<span class="comment">//x 非Boolean 对象</span></span><br><span class="line"><span class="keyword">if</span> (x) &#123;</span><br><span class="line">  <span class="comment">// 这里的代码不会执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<p>thisArg 可选<br><code>当执行回调函数时用作 this 的值</code>  </p>
-<ul>
-<li>map 不修改调用它的原数组本身</li>
-<li>使用 map 方法处理数组时，数组元素的范围是在 callback 方法第一次调用之前就已经确定了。在 map 方法执行的过程中：原数组中新增加的元素将不会被 callback 访问到；若已经存在的元素被改变或删除了，则它们的传递到 callback 的值是 map 方法遍历到它们的那一时刻的值；而被删除的元素将不会被访问到。<h3 id="forEach和map的区别"><a href="#forEach和map的区别" class="headerlink" title="forEach和map的区别"></a>forEach和map的区别</h3></li>
-</ul>
-<ol>
-<li>返回值不同<ul>
-<li>forEach 返回undefined  </li>
-<li>map 返回一个新数组，每个元素都是回调函数的结果  </li>
-</ul>
-</li>
-<li>修改原数组<ul>
-<li>forEach 会改变原数组的数据</li>
-<li>map 会创建一个新数组不会改变原数组的数据</li>
-</ul>
-</li>
-</ol>
+<p>对于任何对象，即使是值为 false 的 Boolean 对象，当将其传给 Boolean 函数时，生成的 Boolean 对象的值都是 true</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myFalse = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>);   <span class="comment">// false</span></span><br><span class="line"><span class="keyword">var</span> g = <span class="keyword">new</span> <span class="built_in">Boolean</span>(myFalse);       <span class="comment">// true</span></span><br><span class="line"><span class="keyword">var</span> myString = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"Hello"</span>);</span><br><span class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">Boolean</span>(myString);      <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -373,7 +378,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript-Array/" rel="tag"># -JavaScript -Array</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -386,8 +391,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/27/for-of和for-in的区别/" rel="next" title="for...of和for...in的区别">
-                <i class="fa fa-chevron-left"></i> for...of和for...in的区别
+              <a href="/2019/06/25/server/lnmp环境安装/" rel="next" title="lnmp环境安装">
+                <i class="fa fa-chevron-left"></i> lnmp环境安装
               </a>
             
           </div>
@@ -395,6 +400,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/26/JavaScript/apply和call的区别/" rel="prev" title="apply和call的区别">
+                apply和call的区别 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -484,7 +493,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -495,7 +504,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -528,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach"><span class="nav-number">1.</span> <span class="nav-text">forEach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">2.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach和map的区别"><span class="nav-number">3.</span> <span class="nav-text">forEach和map的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#new-Boolean-value"><span class="nav-number">1.</span> <span class="nav-text">new Boolean([value])</span></a></li></ol></div>
             
 
           </div>
