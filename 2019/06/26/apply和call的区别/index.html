@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="-node -express,">
+  <meta name="keywords" content="-JavaScript,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="node发送请求">
-<meta name="keywords" content="-node -express">
+<meta name="description" content="applyapply() 方法调用一个具有给定this值的函数，以及作为一个数组（或类似数组对象）提供的参数。   123var numbers = [5, 6, 2, 3, 7];var max = Math.max.apply(null, numbers);console.log(max);// expected output: 7  callcall() 方法使用一个指定的 this 值和单">
+<meta name="keywords" content="-JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node服务编写">
-<meta property="og:url" content="https://xingshijun.github.io/2019/06/18/node服务编写/index.html">
+<meta property="og:title" content="apply和call的区别">
+<meta property="og:url" content="https://xingshijun.github.io/2019/06/26/apply和call的区别/index.html">
 <meta property="og:site_name" content="All roads lead to Rome">
-<meta property="og:description" content="node发送请求">
+<meta property="og:description" content="applyapply() 方法调用一个具有给定this值的函数，以及作为一个数组（或类似数组对象）提供的参数。   123var numbers = [5, 6, 2, 3, 7];var max = Math.max.apply(null, numbers);console.log(max);// expected output: 7  callcall() 方法使用一个指定的 this 值和单">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-25T03:24:55.312Z">
+<meta property="og:updated_time" content="2019-06-26T09:05:26.663Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node服务编写">
-<meta name="twitter:description" content="node发送请求">
+<meta name="twitter:title" content="apply和call的区别">
+<meta name="twitter:description" content="applyapply() 方法调用一个具有给定this值的函数，以及作为一个数组（或类似数组对象）提供的参数。   123var numbers = [5, 6, 2, 3, 7];var max = Math.max.apply(null, numbers);console.log(max);// expected output: 7  callcall() 方法使用一个指定的 this 值和单">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://xingshijun.github.io/2019/06/18/node服务编写/">
+  <link rel="canonical" href="https://xingshijun.github.io/2019/06/26/apply和call的区别/">
 
 
 
 
 
-  <title>node服务编写 | All roads lead to Rome</title>
+  <title>apply和call的区别 | All roads lead to Rome</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xingshijun.github.io/2019/06/18/node服务编写/">
+    <link itemprop="mainEntityOfPage" href="https://xingshijun.github.io/2019/06/26/apply和call的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xing Shi Jun">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">node服务编写</h1>
+          <h1 class="post-title" itemprop="name headline">apply和call的区别</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-18T11:22:35+08:00">
-                2019-06-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-26T17:01:15+08:00">
+                2019-06-26
               </time>
             
 
@@ -302,28 +302,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -352,26 +330,11 @@
       
 
       
-        <h3 id="node发送请求"><a href="#node发送请求" class="headerlink" title="node发送请求"></a>node发送请求</h3><a id="more"></a>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> request = <span class="built_in">require</span>(<span class="string">'request'</span>);</span><br><span class="line">getData(<span class="string">'https://www.baidu.com'</span>, &#123;</span><br><span class="line">		a: <span class="string">'1'</span>,</span><br><span class="line">		b: <span class="string">'2'</span></span><br><span class="line">	&#125;).then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">		res.send(data);</span><br><span class="line">	&#125;)</span><br><span class="line"><span class="keyword">const</span> getData = <span class="function">(<span class="params">url, param</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">		request.post(&#123;</span><br><span class="line">			url: url,</span><br><span class="line">			form: param</span><br><span class="line">		&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error, response, data</span>) </span>&#123;</span><br><span class="line">			<span class="comment">//如果请求成功则打印数据 否则显示错误信息</span></span><br><span class="line">			<span class="keyword">if</span> (!error &amp;&amp; response.statusCode == <span class="number">200</span>) &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(data);</span><br><span class="line">				resolve(data)</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(error);</span><br><span class="line">				<span class="built_in">console</span>.log(response.statusCode);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h3><p>apply() 方法调用一个具有给定this值的函数，以及作为一个数组（或类似数组对象）提供的参数。  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">7</span>];</span><br><span class="line"><span class="keyword">var</span> max = <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, numbers);</span><br><span class="line"><span class="built_in">console</span>.log(max);<span class="comment">// expected output: 7</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="node定时任务"><a href="#node定时任务" class="headerlink" title="node定时任务"></a>node定时任务</h3><ol>
-<li><p>安装node-schedule</p>
-<p><code>yarn add node-schedule</code></p>
-</li>
-<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> schedule = <span class="built_in">require</span>(<span class="string">'node-schedule'</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">scheduleCronstyle</span>(<span class="params"></span>)</span>&#123;<span class="comment">//定时任务 每分钟的第30秒执行</span></span><br><span class="line">	schedule.scheduleJob(<span class="string">'30 * * * * *'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'scheduleCronstyle:'</span>+<span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line">scheduleCronstyle();<span class="comment">//开启定时器</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通配符意义  *  *  *  *  *  *</p>
-<p>6个占位符从左到右分别代表：秒、分、时、日、月、周几</p>
-<p>每分钟的第30秒触发： ‘30 * * * * *’</p>
-<p>每小时的1分30秒触发 ：’30 1 * * * *’</p>
-<p>每天的凌晨1点1分30秒触发 ：’30 1 1 * * *’</p>
-<p>每月的1日1点1分30秒触发 ：’30 1 1 1 * *’</p>
-<p>2019年的1月1日1点1分30秒触发 ：’30 1 1 1 2019*’</p>
-<p>每周1的1点1分30秒触发 ：’30 1 1 * * 1’</p>
-</li>
-</ol>
-<h3 id="linux后台运行node服务"><a href="#linux后台运行node服务" class="headerlink" title="linux后台运行node服务"></a>linux后台运行node服务</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install -g pm2</span><br><span class="line">pm2 start app.js -i max //启动一个使用所有CPU核心的集群 app.js是启动服务的js</span><br><span class="line">pm2 list  //列出所有pm2开启的进程</span><br><span class="line">pm2 monit //查看运行状态</span><br><span class="line">pm2 logs //打印日志</span><br></pre></td></tr></table></figure></code></pre>
+<h3 id="call"><a href="#call" class="headerlink" title="call"></a>call</h3><p>call() 方法使用一个指定的 this 值和单独给出的一个或多个参数来调用一个函数。  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Product</span>(<span class="params">name, price</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.price = price;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Food</span>(<span class="params">name, price</span>) </span>&#123;</span><br><span class="line">  Product.call(<span class="keyword">this</span>, name, price);</span><br><span class="line">  <span class="keyword">this</span>.category = <span class="string">'food'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> Food(<span class="string">'cheese'</span>, <span class="number">5</span>).name);<span class="comment">// expected output: "cheese"</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -388,7 +351,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/node-express/" rel="tag"># -node -express</a>
+            <a href="/tags/JavaScript/" rel="tag"># -JavaScript</a>
           
         </div>
       
@@ -401,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/18/MySQL安装使用/" rel="next" title="MySQL安装使用">
-                <i class="fa fa-chevron-left"></i> MySQL安装使用
+              <a href="/2019/06/26/Boolean/" rel="next" title="Boolean">
+                <i class="fa fa-chevron-left"></i> Boolean
               </a>
             
           </div>
@@ -411,8 +374,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/18/node服务安装和部署/" rel="prev" title="node服务安装和部署">
-                node服务安装和部署 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/26/JSON-parse的用法/" rel="prev" title="JSON.parse的用法">
+                JSON.parse的用法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -547,7 +510,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#node发送请求"><span class="nav-number">1.</span> <span class="nav-text">node发送请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node定时任务"><span class="nav-number">2.</span> <span class="nav-text">node定时任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux后台运行node服务"><span class="nav-number">3.</span> <span class="nav-text">linux后台运行node服务</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#apply"><span class="nav-number">1.</span> <span class="nav-text">apply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#call"><span class="nav-number">2.</span> <span class="nav-text">call</span></a></li></ol></div>
             
 
           </div>
