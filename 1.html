@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ch">
 <head>
@@ -227,7 +226,8 @@
     var inner = ""
     var a
     for (let i = 0; i < arr.length; i++) {
-        a = "<a href='" + arr[i] + "' download='" + i + "'>" + i + "</a><br/>"
+        a = "<a target=_blank href='" + arr[i] + "'>" + i + "</a><br/>"
+
         inner += a
     }
     document.body.innerHTML = inner;
